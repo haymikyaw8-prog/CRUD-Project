@@ -1,15 +1,16 @@
+require ("dotenv").config
 const express = require("express");
 const mongoose = require("mongoose");
 const Product = require("./models/product.model.js");
 const productRoute = require("./routes/product.route.js");
 const app = express();
 
-// middleware
+
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 
-// routes
+
 app.use("/api/products", productRoute);
 
 
@@ -22,7 +23,7 @@ app.get("/", (req, res) => {
 
 mongoose
   .connect(
-    "mongodb://localhost:27017/REST_App"
+    "mongodb+srv://haymikyaw8_db_user:JbT234ma4inKBj8v@backenddb.qdc5nnm.mongodb.net/"
   )
   .then(() => {
     console.log("Connected to database!");
